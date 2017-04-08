@@ -1,4 +1,4 @@
-package com.example.myolab.babaneyiyecegiz;
+package com.example.huseyin.hsirtikara;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.myolab.babaneyiyecegiz", appContext.getPackageName());
+        assertEquals("com.example.huseyin.hsirtikara", appContext.getPackageName());
     }
 }
