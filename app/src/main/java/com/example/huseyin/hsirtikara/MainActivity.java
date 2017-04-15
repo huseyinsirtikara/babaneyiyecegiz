@@ -2,6 +2,7 @@ package com.example.huseyin.hsirtikara;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,12 +30,27 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    RequestQueue requestQueue;
+    ImageLoader imageLoader;
     JSONArray venueList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        requestQueue = Volley.newRequestQueue(MainActivity.this);
+        imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
+            @Override
+            public Bitmap getBitmap(String url) {
+                return null;
+            }
+
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+
+            }
+        });
 
 
 //        ListView lv = (ListView) findViewById(R.id.lv_venues);
@@ -136,6 +156,10 @@ public class MainActivity extends AppCompatActivity {
             TextView txtVenue = (TextView) rowView.findViewById(R.id.txt_venue);
 
 
+            NetworkImageView imageView = (NetworkImageView) rowView.findViewById(R.id.img_album);
+            imageView.setImageUrl("http://denemeler.im/medipol/image_"+(position+1)+".png",imageLoader);
+
+
             try {
 
                 txtVenue.setText(venueList.getJSONObject(position).getString("name"));
@@ -147,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
             return rowView;
         }
+
     }
 
 
