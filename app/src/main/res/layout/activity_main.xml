@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huseyin.hsirtikara.MainActivity">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="BABA NE YİYCEZ"
-    android:gravity="center"
-    android:textSize="20sp"
-    />
+    tools:context="com.example.huseyin.hsirtikara.MainActivity"
+    android:background="@mipmap/resim"
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+       android:src="@mipmap/logo"
+
+        />
     <ListView
         android:id="@+id/lv_venues"
         android:layout_width="368dp"
@@ -19,6 +22,5 @@
         android:layout_marginTop="50dp">
 
     </ListView>
-
 
 </RelativeLayout>
